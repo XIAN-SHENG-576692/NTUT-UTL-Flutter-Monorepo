@@ -1,0 +1,28 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+
+    // Commonly used VS Code extensions for this project
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Dart-Code.dart-code",  // Dart language support
+                "Dart-Code.flutter",    // Flutter support
+                "vscjava.vscode-gradle" // Gradle support for Android projects
+            ]
+        }
+    },
+
+    "name": "Flutter Dev Container",
+
+    // Privileged for debugging, hardware access, etc.
+    "runArgs": [
+        "--mount=type=bind,src=/dev/bus/usb,dst=/dev/bus/usb,rw", // Mount USB devices (for use with adb)
+        "--privileged"
+    ],
+
+    "workspaceFolder": "/workspaces",
+
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind"
+}
